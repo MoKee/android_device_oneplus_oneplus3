@@ -99,9 +99,9 @@ WCNSS_FILTER_USES_SIBS := true
 # Camera
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 
-# CM Hardware
+# MK Hardware
 BOARD_HARDWARE_CLASS := \
-    $(DEVICE_PATH)/cmhw
+    $(DEVICE_PATH)/mkhw
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Charger
@@ -163,7 +163,7 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_APPEND_DTB := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8996
-TARGET_KERNEL_CONFIG := cyanogenmod_oneplus3_defconfig
+TARGET_KERNEL_CONFIG := mokee_oneplus3_defconfig
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
