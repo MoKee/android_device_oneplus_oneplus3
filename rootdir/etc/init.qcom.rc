@@ -42,7 +42,6 @@ on init
     mkdir /persist 0771 system system
 
     # Support legacy paths
-    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
 on early-boot
@@ -170,12 +169,20 @@ on boot
     chown system system /sys/class/leds/red/duty_pcts
     chown system system /sys/class/leds/blue/duty_pcts
     chown system system /sys/class/leds/green/duty_pcts
+    chown system system /sys/class/leds/red/start_idx
+    chown system system /sys/class/leds/blue/start_idx
+    chown system system /sys/class/leds/green/start_idx
+
     chmod 660 /sys/class/leds/red/ramp_step_ms
     chmod 660 /sys/class/leds/green/ramp_step_ms
     chmod 660 /sys/class/leds/blue/ramp_step_ms
     chmod 660 /sys/class/leds/red/duty_pcts
     chmod 660 /sys/class/leds/green/duty_pcts
     chmod 660 /sys/class/leds/blue/duty_pcts
+    chmod 660 /sys/class/leds/red/start_idx
+    chmod 660 /sys/class/leds/green/start_idx
+    chmod 660 /sys/class/leds/blue/start_idx
+
 
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
@@ -745,10 +752,10 @@ on property:persist.sys.ssr.enable_ramdumps=0
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
-    # Reset the read_ahead_kb to 512
-    write /sys/block/dm-0/queue/read_ahead_kb 512
-    write /sys/block/sda/queue/read_ahead_kb 512
-    write /sys/block/sde/queue/read_ahead_kb 512
+    # Reset the read_ahead_kb to 256
+    write /sys/block/dm-0/queue/read_ahead_kb 256
+    write /sys/block/sda/queue/read_ahead_kb 256
+    write /sys/block/sde/queue/read_ahead_kb 256
 
     # CPE fw_name used by sound trigger HAL
     chown media audio /sys/kernel/wcd_cpe0/fw_name
