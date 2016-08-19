@@ -28,8 +28,6 @@ audio_hal.period_size=160
 # Bluetooth
 bt.max.hfpclient.connections=1
 qcom.bluetooth.soc=rome
-ro.bluetooth.wipower=true
-ro.bluetooth.emb_wp_mode=true
 
 # Camera
 persist.camera.imglib.fddsp=1
@@ -65,7 +63,7 @@ debug.egl.hw=1
 debug.gralloc.enable_fb_ubwc=1
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
-ro.opengles.version=196610
+ro.opengles.version=196609
 ro.sf.lcd_density=480
 persist.sys.wfd.virtual=0
 sdm.perf_hint_window=50
