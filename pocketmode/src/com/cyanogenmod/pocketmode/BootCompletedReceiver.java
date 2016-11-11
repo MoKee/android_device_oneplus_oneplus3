@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The CyanogenMod Project
+ * Copyright (c) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,20 @@
  * limitations under the License.
  */
 
-#define CAMERA_PARAMETERS_EXTRA_C \
-    const char CameraParameters::CLIENT_PACKAGE_NAME[] = "client-package-name"; \
-    const char CameraParameters::KEY_SUPPORTED_VIDEO_SIZES_60FPS[] = "support-60fps-video-sizes";
+package com.cyanogenmod.pocketmode;
 
-#define CAMERA_PARAMETERS_EXTRA_H \
-    static const char CLIENT_PACKAGE_NAME[]; \
-    static const char KEY_SUPPORTED_VIDEO_SIZES_60FPS[];
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+
+public class BootCompletedReceiver extends BroadcastReceiver {
+
+    private static final String TAG = "OneplusPocketMode";
+
+    @Override
+    public void onReceive(final Context context, Intent intent) {
+        Log.d(TAG, "Starting");
+        context.startService(new Intent(context, PocketModeService.class));
+    }
+}
