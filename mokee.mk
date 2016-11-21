@@ -19,9 +19,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from oneplus3 device
 $(call inherit-product, device/oneplus/oneplus3/device.mk)
 
-# Enhanced NFC
-$(call inherit-product, vendor/mk/config/nfc_enhanced.mk)
-
 # Inherit some common MK stuff.
 $(call inherit-product, vendor/mk/config/common_full_phone.mk)
 
