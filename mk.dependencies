@@ -1,5 +1,9 @@
 [
  {
+   "repository": "android_vendor_oneplus_oneplus3",
+   "target_path": "vendor/oneplus/oneplus3"
+ },
+ {
    "repository": "android_device_oppo_common",
    "target_path": "device/oppo/common"
  },
