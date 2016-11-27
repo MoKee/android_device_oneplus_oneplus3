@@ -16,4 +16,4 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-rm -rf z1/firmware-update
+python $ANDROID_BUILD_TOP/build/tools/mk_ota_script/ota_radio.pyz $DEVICE_TREE/radio/filesmap
