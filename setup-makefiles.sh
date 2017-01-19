@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,6 +21,8 @@ set -e
 # Required!
 DEVICE=oneplus3
 VENDOR=oneplus
+
+INITIAL_COPYRIGHT_YEAR=2016
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -76,6 +79,9 @@ endif
 EOF
 
 printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8996/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
+
+# Append the calls to firmware images
+append_firmware_calls_to_makefiles
 
 # We are done!
 write_footers
