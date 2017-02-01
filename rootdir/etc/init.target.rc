@@ -46,9 +46,7 @@ on fs
 
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-    export LD_SHIM_LIBS /system/lib/hw/camera.msm8996.so|libcamera_shim.so:/system/lib/libopcamera_native_modules.so|libcamera_shim.so
-
-    setprop persist.camera.HAL3.enabled 0
+    export LD_SHIM_LIBS /system/lib/hw/camera.msm8996.so|libcamera_shim.so
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
@@ -93,6 +91,14 @@ on boot
     chown system radio /proc/touchpanel/double_tap_enable
     chmod 0660 /proc/touchpanel/double_tap_enable
 
+    chown root system /proc/touchpanel/up_swipe_enable
+    chmod 0660 /proc/touchpanel/up_swipe_enable
+    chown root system /proc/touchpanel/down_swipe_enable
+    chmod 0660 /proc/touchpanel/down_swipe_enable
+    chown root system /proc/touchpanel/left_swipe_enable
+    chmod 0660 /proc/touchpanel/left_swipe_enable
+    chown root system /proc/touchpanel/right_swipe_enable
+    chmod 0660 /proc/touchpanel/right_swipe_enable
     chown root system /proc/touchpanel/double_swipe_enable
     chmod 0660 /proc/touchpanel/double_swipe_enable
     chown root system /proc/touchpanel/up_arrow_enable
@@ -197,6 +203,8 @@ on boot
     chmod 660 /sys/class/leds/green/start_idx
     chmod 660 /sys/class/leds/blue/start_idx
     chmod 660 /sys/class/leds/rgb/rgb_blink
+
+    setprop persist.camera.HAL3.enabled 1
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -555,6 +563,11 @@ service ifaadaemon /system/bin/ifaadaemon
     class late_start
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
+
+service remosaic_daemon /system/bin/remosaic_daemon
+    class late_start
+    user camera
     writepid /dev/cpuset/system-background/tasks
 
 # such color
