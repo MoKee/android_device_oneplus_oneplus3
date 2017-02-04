@@ -115,14 +115,11 @@ void vendor_load_properties() {
     } else if (strstr(rf_version, "21")) {
         /* Asia/Europe */
         load_op3("ONEPLUS A3003");
-    } else if (strstr(rf_version, "12")) {
-        /* America */
-        load_op3t("ONEPLUS A3000");
     } else if (strstr(rf_version, "22")) {
         /* Asia/Europe */
         load_op3t("ONEPLUS A3003");
-    } else if (strstr(rf_version, "32")) {
-        /* Chinese */
+    } else if (strstr(rf_version, "12") || strstr(rf_version, "32")) {
+        /* Chinese/America */
         load_op3t("ONEPLUS A3010");
     }
 
