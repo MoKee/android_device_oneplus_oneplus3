@@ -26,7 +26,7 @@ $(call inherit-product, vendor/mk/config/common_full_phone.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.mk.maintainer=dianlujitao
 
-PRODUCT_NAME := mokee_oneplus3
+PRODUCT_NAME := mk_oneplus3
 PRODUCT_DEVICE := oneplus3
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
