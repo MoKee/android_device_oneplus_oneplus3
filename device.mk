@@ -1,5 +1,5 @@
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017-2019 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -313,9 +313,14 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 
-# LiveDisplay native
+# MK hardware
 PRODUCT_PACKAGES += \
-    vendor.mokee.livedisplay@1.0-service-sdm
+    vendor.mokee.touch@1.0-service.oneplus3 \
+    vendor.mokee.trust@1.0-service
+
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.mokee.livedisplay@2.0-service.oneplus3
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -369,7 +374,6 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/perfboostsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfboostsconfig.xml \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Qualcomm
