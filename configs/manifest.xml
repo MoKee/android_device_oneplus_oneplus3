@@ -222,7 +222,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IRadio</name>
             <instance>slot1</instance>
@@ -234,15 +234,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>slot2</instance>
         </interface>
     </hal>
-    <hal format="hidl">
-        <name>android.hardware.radio.deprecated</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IOemHook</name>
-            <instance>slot1</instance>
-            <instance>slot2</instance>
-        </interface>
+   <hal format="hidl">
+       <name>android.hardware.radio.config</name>
+       <transport>hwbinder</transport>
+       <version>1.0</version>
+       <interface>
+           <name>IRadioConfig</name>
+           <instance>default</instance>
+       </interface>
     </hal>
     <hal format="hidl">
        <name>vendor.qti.hardware.radio.am</name>
@@ -291,7 +290,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>vendor.qti.hardware.radio.uim</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>1.1</version>
         <interface>
             <name>IUim</name>
             <instance>Uim0</instance>
@@ -683,11 +682,20 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    <!-- Data Link Latency -->
+    <hal format="hidl">
+        <name>vendor.qti.hardware.data.latency</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILinkLatency</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 
     <hal format="hidl">
         <name>android.hardware.nfc</name>
         <transport>hwbinder</transport>
-        <impl level="generic"></impl>
         <version>1.1</version>
         <interface>
             <name>INfc</name>
@@ -695,9 +703,17 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl">
+        <name>vendor.nxp.hardware.nfc</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>INqNfc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.biometrics.fingerprint</name>
         <transport>hwbinder</transport>
-        <impl level="generic"></impl>
         <version>2.1</version>
         <interface>
             <name>IBiometricsFingerprint</name>
@@ -719,6 +735,33 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.0</version>
         <interface>
             <name>IUsb</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oneplus.fingerprint.extension</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IVendorFingerprintExtensions</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oneplus.hardware.ifaa</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>IOneplusIfaa</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.oneplus.hardware.param</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IOneplusParam</name>
             <instance>default</instance>
         </interface>
     </hal>

@@ -27,7 +27,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.mk.maintainer=dianlujitao
 
 # Vendor security patch level
-VENDOR_SECURITY_PATCH := 2018-11-01
+VENDOR_SECURITY_PATCH := 2019-04-01
 
 PRODUCT_NAME := mk_oneplus3
 PRODUCT_DEVICE := oneplus3
@@ -36,6 +36,6 @@ PRODUCT_BRAND := OnePlus
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
-BUILD_FINGERPRINT := "OnePlus/OnePlus3/OnePlus3:8.0.0/OPR1.170623.032/02281230:user/release-keys"
+BUILD_FINGERPRINT := "OnePlus/OnePlus3/OnePlus3:9/PKQ1.181203.001/1905251415:user/release-keys"
 
 TARGET_VENDOR := oneplus

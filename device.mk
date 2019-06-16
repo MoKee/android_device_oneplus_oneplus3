@@ -82,16 +82,15 @@ TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=16m \
     dalvik.vm.heapgrowthlimit=256m \
+    dalvik.vm.heapstartsize=8m \
     dalvik.vm.heapsize=512m \
     dalvik.vm.heaptargetutilization=0.75 \
-    dalvik.vm.heapminfree=4m \
+    dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
-    persist.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.custom_ecc=1 \
@@ -196,7 +195,6 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=rome \
     vendor.qcom.bluetooth.soc=rome
 
 # Camera
@@ -204,7 +202,7 @@ PRODUCT_PACKAGES += \
     Snap \
     libcamera_shim \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service.oneplus3
+    android.hardware.camera.provider@2.4-service
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
@@ -235,7 +233,8 @@ PRODUCT_PACKAGES += \
     vendor.display.color@1.0-impl
 
 PRODUCT_PROPERTY_OVERRIDES  += \
-    ro.opengles.version=196610
+    ro.opengles.version=196610 \
+    ro.sf.lcd_density=420
 
 # Display calibration
 PRODUCT_PACKAGES += \
@@ -286,9 +285,7 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0 \
-    android.hidl.manager@1.0-java
+    android.hidl.base@1.0
 
 # IPv6
 PRODUCT_PACKAGES += \
@@ -347,15 +344,27 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    NfcNci \
-    SecureElement \
+    NQNfcNci \
+    libnqnfc-nci \
+    libnqnfc_nci_jni \
+    nfc_nci.nqx.default \
+    libp61-jcop-kit \
+    com.nxp.nfc.nq \
+    com.nxp.nfc.nq.xml \
+    nqnfcee_access.xml \
+    nqnfcse_access.xml \
     Tag \
-    android.hardware.nfc@1.1-service
+    com.android.nfc_extras \
+    vendor.nxp.hardware.nfc@1.1-service \
+    nfc_nci.nqx.default.hw
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp_RF.conf \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.nfc_nci=nqx.default
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -395,6 +404,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.class_main.sh \
+    init.class_late.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
@@ -425,6 +435,7 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio.config@1.0 \
     librmnetctl \
     libxml2 \
     libprotobuf-cpp-full
